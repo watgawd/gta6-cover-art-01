@@ -1,0 +1,30 @@
+html, body { margin: 0; min-height: 100%; background: #14101c; color: #f2eef7; font: 15px/1.45 system-ui, sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 14px; width: 320px; flex: none; }
+.controls h1 { margin: 0; font-size: 30px; letter-spacing: 0.02em; }
+.controls h1::after { content: " VI"; color: #ff9e2c; }
+.tagline { margin: 0; color: #b9b0c9; }
+fieldset { border: 1px solid #3a2f4d; border-radius: 10px; padding: 12px; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+legend { font-weight: 700; color: #ff9e2c; padding: 0 6px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 500; }
+input[type=text], select { font: inherit; padding: 8px; border: 1px solid #574a6e; border-radius: 6px; background: #241d31; color: #f2eef7; }
+input[type=file] { font: inherit; }
+button { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 6px; background: #ff9e2c; color: #1b1426; cursor: pointer; }
+button:hover { background: #ffb85c; }
+.row { display: flex; gap: 8px; }
+.row button { flex: 1; background: #3a2f4d; color: #f2eef7; }
+.panel-pick { display: flex; gap: 6px; flex-wrap: wrap; }
+.panel-pick button { background: #3a2f4d; color: #f2eef7; padding: 6px 10px; }
+.panel-pick button.picked { background: #ff9e2c; color: #1b1426; }
+.hint { margin: 0; color: #b9b0c9; font-weight: 400; }
+#status { margin: 0; color: #8be9c9; min-height: 1.2em; }
+.stage { display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 24px; }
+canvas { width: min(72vh, 58vw); height: auto; aspect-ratio: auto; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55); background: #1b1426; cursor: grab; touch-action: none; }
+canvas:active { cursor: grabbing; }
+.stage-hint { margin: 0; color: #b9b0c9; }
+body.shot-cover .controls, body.shot-cover .stage-hint { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover .stage { position: static; }
+body.shot-cover canvas { box-shadow: none; }
+@media (max-width: 900px) { .app { flex-direction: column; align-items: center; } .controls { width: min(92vw, 420px); } }

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style cover art maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>Vice Cover Studio</h1>
+    <p class="tagline">Turn a photo and a caption into GTA-style cover art. Photos stay on your machine — nothing is uploaded.</p>
+
+    <fieldset>
+      <legend>Photos — click a panel, then load a photo</legend>
+      <div class="panel-pick" id="panelPick" role="group" aria-label="Choose panel to edit"></div>
+      <label class="file-label">Load photo for selected panel
+        <input id="photo" type="file" accept="image/*">
+      </label>
+      <div class="row">
+        <button id="sampleA" type="button">Sample: pier</button>
+        <button id="sampleB" type="button">Sample: boulevard</button>
+      </div>
+      <label>Zoom <input id="zoom" type="range" min="1" max="3" step="0.01" value="1.15"></label>
+      <p class="hint">Drag the preview to move the photo inside its panel.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Layout &amp; size</legend>
+      <label>Layout
+        <select id="layout">
+          <option value="hero">Hero — one big panel</option>
+          <option value="split" selected>Split — two panels</option>
+          <option value="triptych">Triptych — three strips</option>
+          <option value="quad">Quad — four panels</option>
+          <option value="diagonal">Diagonal — two angled panels</option>
+          <option value="strip">Strip — hero + three small</option>
+        </select>
+      </label>
+      <label>Post size
+        <select id="size">
+          <option value="1080x1080" selected>Square — 1080 × 1080</option>
+          <option value="1080x1350">Portrait — 1080 × 1350</option>
+          <option value="1920x1080">Landscape — 1920 × 1080</option>
+        </select>
+      </label>
+      <label>Colour grade
+        <select id="grade">
+          <option value="sunset" selected>Vice Sunset — orange / magenta</option>
+          <option value="neon">Neon Nights — pink / cyan</option>
+          <option value="palm">Palm Noir — teal / gold</option>
+          <option value="mono">Mono — high-contrast black &amp; white</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Words</legend>
+      <label>Title <input id="title" type="text" maxlength="24" value="VICE CITY"></label>
+      <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
+      <label>Sub-caption <input id="subtitle" type="text" maxlength="40" value="Leonida • Coming soon"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Finish</legend>
+      <label class="check"><input id="halftone" type="checkbox" checked> Halftone print dots</label>
+      <label class="check"><input id="frame" type="checkbox" checked> Thick poster frame</label>
+      <label class="check"><input id="badge" type="checkbox" checked> “VI” corner badge</label>
+      <button id="export" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+  <div class="stage">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p class="stage-hint">Live preview — drag a panel to reposition its photo.</p>
+  </div>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
